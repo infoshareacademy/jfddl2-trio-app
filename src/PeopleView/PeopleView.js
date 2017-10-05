@@ -1,6 +1,7 @@
 import React from 'react'
+import PeopleViewsTable from "./PeopleViewsTable";
 
-class PeopleView extends React.Component {
+class PeopleViews extends React.Component {
 
     state = {
         people: null,
@@ -17,7 +18,7 @@ class PeopleView extends React.Component {
         ).then(
             response => response.json()
         ).then(
-            peopleView => this.setState({ peopleView, fetching: false })
+            peopleViews => this.setState({ peopleViews, fetching: false })
         ).catch(
             error => this.setState({ error, fetching: false })
         )
@@ -27,10 +28,11 @@ class PeopleView extends React.Component {
 
         return (
             <div>
-
+                <h1>PeopleViews</h1>
+                <PeopleViewsTable people={this.state.people}/>
             </div>
         );
     }
 }
 
-export default PeopleView;
+export default PeopleViews;
