@@ -16,7 +16,7 @@ class App extends Component {
     return (
         <Router>
             <Grid>
-                <PersonDetails/>
+                <Person/>
             </Grid>
         </Router>
     );
