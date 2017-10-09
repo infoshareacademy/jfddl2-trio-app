@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import data from '../MOCK_DATA.json'
+import React from 'react'
+import GroupsViewTable from "./GroupsViewTable"
+import DataFetcher from "../DataFetcher/DataFetcher"
 
-class GroupsView extends Component {
+class GroupsView extends React.Component {
+
     render() {
-        return (
+        return(
             <div>
-                GroupsViews
-                {
-                    data.map(
-                        // dodawanie po czym mamy szukac
-                        person => <p>{person.first_name}</p>
-                    )
+            <DataFetcher collections={{
+                person: {
+                    url: `${process.env.PUBLIC_URL}/data/MOCK_DATA.json`,
+                    label: 'Person'
                 }
+            }}>
+                <GroupsViewTable />
+            </DataFetcher>
             </div>
-        );
+        )
     }
 }
+export default GroupsView
 
-export default GroupsView;

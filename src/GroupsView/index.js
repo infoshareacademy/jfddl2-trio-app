@@ -1,1 +1,1 @@
-export { default } from './GroupsView'
+export { default } from './GroupsViewTable'
