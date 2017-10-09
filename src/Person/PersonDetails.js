@@ -18,19 +18,20 @@ class PersonDetails extends React.Component {
                         <h2>{person.name}</h2>
 
                     </div>
-
-
+                    <img src={ require('./facet.jpeg')} style= {{width: 300, height: 200}} />
                     <Table striped bordered condensed hover style={{
                         marginTop: 50
                     }}>
+
                         <thead>
                         <tr>
                             <th>Imię</th>
                             <th>Nazwisko</th>
                             <th>Profesja</th>
-                            <th>Doświadczenie</th>
                             <th>Wiek</th>
-                            <th>Kontakt</th>
+                            <th>Adres</th>
+                            <th>Adres email</th>
+                            <th>Telefon</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,25 +44,26 @@ class PersonDetails extends React.Component {
                                             {person.last_name}
                                         </td>
                                         <td>
-                                            {person.name}
+                                            {person.proffesion}
                                         </td>
                                         <td>
-                                            {person.name}
+                                            {person.age}
+
                                         </td>
                                         <td>
-                                            {person.name}
+                                            {person.adress}
                                         </td>
                                         <td>
-                                            {person.name}
+                                            {person.email},
+                                        </td>
+                                        <td>
+                                            {person.phone}
                                         </td>
                                     </tr>
                         </tbody>
-
                     </Table>
                 </div>
-
         )
-
     }
 }
 
