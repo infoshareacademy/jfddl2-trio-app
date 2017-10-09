@@ -1,9 +1,13 @@
 import React from 'react'
 import PeopleViewsTable from "./PeopleViewsTable";
 import DataFetcher from "../DataFetcher/DataFetcher";
-import'./PeopleView.css'
+import './PeopleView.css'
+import PeopleSearchForm from './PeopleSearchForm'
 
 class PeopleViews extends React.Component {
+    handleChange = () => {
+        console.log('Ala ma kota')
+    }
 
     render() {
 
@@ -17,6 +21,7 @@ class PeopleViews extends React.Component {
                         label: 'People'
                     }
                 }}>
+                    <PeopleSearchForm handleChange={this.handleChange}/>
                     <PeopleViewsTable/>
                 </DataFetcher>
             </div>
