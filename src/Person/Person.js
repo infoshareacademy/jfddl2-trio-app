@@ -12,10 +12,9 @@ class Person extends React.Component {
 
         return (
             <div>
-                <h1>Person</h1>
                 <DataFetcher collections={{
                     persons: {
-                        url: `${process.env.PUBLIC_URL}data/MOCK_DATA.json`,
+                        url: `${process.env.PUBLIC_URL}/data/MOCK_DATA.json`,
                         label: 'Person'
                     }
                 }}>
