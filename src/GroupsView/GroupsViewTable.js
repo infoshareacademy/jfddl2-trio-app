@@ -9,8 +9,8 @@ class GroupsViewTable extends Component {
     }
 
     render() {
-        console.log(JSON.stringify(this.props))
-        const data = this.props.collections.person.data || []
+        console.log(this.props);
+        const data = this.props.collections ? this.props.collections.person.data : []
         return (
             <div>
                 <Table striped bordered condensed hover style={{ marginTop:20}}>

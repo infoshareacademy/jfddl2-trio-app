@@ -9,7 +9,7 @@ class GroupsView extends React.Component {
             <div>
             <DataFetcher collections={{
                 person: {
-                    url: `${process.env.PUBLIC_URL}/data/MOCK_DATA.json`,
+                    url: `${process.env.PUBLIC_URL}data/MOCK_DATA.json`,
                     label: 'Person'
                 }
             }}>
