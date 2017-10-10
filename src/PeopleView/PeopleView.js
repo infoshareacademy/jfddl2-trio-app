@@ -5,8 +5,16 @@ import './PeopleView.css'
 import PeopleSearchForm from './PeopleSearchForm'
 
 class PeopleViews extends React.Component {
-    handleChange = () => {
-        console.log('Ala ma kota')
+
+    state = {
+        activeFilterNames: [],
+        currentSearchPhrase: ''
+    }
+
+    handleSearchPhraseChange = event => {
+        this.setState({
+            currentSearchPhrase: event.target.value
+        })
     }
 
     render() {
@@ -21,8 +29,14 @@ class PeopleViews extends React.Component {
                         label: 'People'
                     }
                 }}>
-                    <PeopleSearchForm handleChange={this.handleChange}/>
-                    <PeopleViewsTable/>
+                    <PeopleSearchForm
+                        handleChange={this.handleSearchPhraseChange}
+                        currentSearchPhrase={this.state.currentSearchPhrase}
+
+                    />
+                    <PeopleViewsTable
+                        currentSearchPhrase={this.state.currentSearchPhrase}
+                    />
                 </DataFetcher>
             </div>
         );

@@ -1,11 +1,13 @@
 import React from 'react'
-import data from '../MOCK_DATA.json'
 import {Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 
 class PeopleViewsTable extends React.Component {
+
     render() {
+        const search = this.props.currentSearchPhrase || ''
+        const data =  this.props.collections.people.data || [];
         return (
             <div>
                 <Table striped bordered condensed hover style={{
@@ -21,7 +23,12 @@ class PeopleViewsTable extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        data.map(
+                        data && data.filter(
+                            people =>
+                                (people.first_name.toLowerCase()).includes(
+                                    (search.toLowerCase())
+                                )
+                        ).map(
                             people =>
                                 <tr key={people.id}>
                                     <td>
