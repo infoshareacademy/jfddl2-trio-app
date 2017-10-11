@@ -16,7 +16,8 @@ class App extends Component {
     return (
       <Router>
           <Grid>
-              <Route exact path="/PeopleView" component={PeopleView}/>
+
+              <Route exact path="/" component={PeopleView}/>
               <Route path="/PersonDetails/:personId" component={PersonDetails}/>
           </Grid>
       </Router>

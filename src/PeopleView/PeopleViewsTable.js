@@ -7,28 +7,40 @@ class PeopleViewsTable extends React.Component {
 
     render() {
         const search = this.props.currentSearchPhrase || ''
-        const data =  this.props.collections.people.data || [];
+        const data = this.props.collections.people.data || [];
         return (
             <div>
                 <Table striped bordered condensed hover style={{
                     marginTop: 20
                 }}>
                     <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Proffesion</th>
-                            <th>City</th>
-                        </tr>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Proffesion</th>
+                        <th>City</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {
                         data && data.filter(
                             people =>
-                                (people.first_name.toLowerCase()).includes(
-                                    (search.toLowerCase())
-                                )
-                        ).map(
+                                (
+                                    people.first_name.toLowerCase().includes(search.toLowerCase())
+
+                                    ||
+
+                                    people.last_name.toLowerCase().includes(search.toLowerCase())
+
+                                    ||
+
+                                    people.proffesion.toLowerCase().includes(search.toLowerCase())
+
+                                    ||
+
+                                    people.city.toLowerCase().includes(search.toLowerCase())
+
+                                )).map(
                             people =>
                                 <tr key={people.id}>
                                     <td>
@@ -47,7 +59,8 @@ class PeopleViewsTable extends React.Component {
                                         <Link to={'/PersonDetails/' + people.id}>open</Link>
                                     </td>
                                 </tr>
-                            )
+                        )
+
 
                     }
                     </tbody>
@@ -56,4 +69,5 @@ class PeopleViewsTable extends React.Component {
         )
     }
 }
+
 export default PeopleViewsTable
