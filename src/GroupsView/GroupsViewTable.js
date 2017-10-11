@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
 class GroupsViewTable extends Component {
+    state = {collections: []}
 
-    handleRemoveTaskClick = ()=>{
+    componentWillMount() {
+        console.log('tasker will mount')
+        this.setState({
+            collections: JSON.parse(
+                localStorage.getItem('userId')
+            )
+        })
+    }
 
+    handleRemoveTaskClick = (id) => {
+        console.log('handleRemoveTaskClick', id)
     }
 
     render() {
-        const data = this.props.collections.person.data || []
+        const data = this.state.collections
         return (
             <div>
-                <Table striped bordered condensed hover style={{ marginTop:20}}>
+                <Table striped bordered condensed hover style={{marginTop: 20}}>
                     <thead>
                     <tr>
                         <th>First Name</th>
@@ -24,7 +34,6 @@ class GroupsViewTable extends Component {
                     <tbody>
                     {
                         data.map(
-                            // dodawanie po czym mamy szukac
                             person =>
 
                                 <tr key={person.id}>
@@ -41,24 +50,23 @@ class GroupsViewTable extends Component {
                                         {person.city}
                                     </td>
                                     <td>
-                                        <Button to={'/GroupsView/' + person.id}>Delete</Button>
-                                        {/*<Button*/}
-                                            {/*data-task-id={GroupsView.id}*/}
-                                            {/*onClick={this.handleRemoveTaskClick}*/}
-                                        {/*>*/}
-                                            {/*delete*/}
-                                        {/*</Button>*/}
+                                        {/*<Button to={'/GroupsView/' + person.id}>Delete</Button>*/}
+                                        <Button
+                                            onClick={() => {
+                                                this.handleRemoveTaskClick(person.id)
+                                            }}
+                                        >
+                                            delete
+                                        </Button>
                                     </td>
                                 </tr>
-
-
                         )
-                        }
+                    }
                     </tbody>
                 </Table>
             </div>
-    );
+        );
     }
-    }
+}
 
-    export default GroupsViewTable;
+export default GroupsViewTable;
