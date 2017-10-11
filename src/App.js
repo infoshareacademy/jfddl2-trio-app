@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import PeopleView from "./PeopleView/PeopleView";
+import PeopleView from "./PeopleView";
 import {
     BrowserRouter as Router, Route,
 
@@ -8,7 +8,7 @@ import {
 import {
     Grid
 } from 'react-bootstrap'
-import PersonDetails from "./PersonDetails/PersonDetails";
+import PersonDetails from "./PersonDetails";
 
 
 class App extends Component {
@@ -16,9 +16,8 @@ class App extends Component {
     return (
       <Router>
           <Grid>
-              <Route exact path="/peopleView" component={PeopleView}/>
-              <Route path="/peopleView/:personId" component={PersonDetails}/>
-            <PeopleView/>
+              <Route exact path="/PeopleView" component={PeopleView}/>
+              <Route path="/PersonDetails/:personId" component={PersonDetails}/>
           </Grid>
       </Router>
     );
