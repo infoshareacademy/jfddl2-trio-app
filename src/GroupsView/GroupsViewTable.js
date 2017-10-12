@@ -15,7 +15,12 @@ class GroupsViewTable extends Component {
     }
 
     handleRemoveTaskClick = (id) => {
-        console.log('handleRemoveTaskClick', id)
+        console.log('handleRemoveTaskClick', id);
+        //
+        // console.log( this.state.collections);
+        // delete this.state.collections[id];
+        // console.log( this.state.collections[id]);
+        this.setState({collections: this.state.collections})
     }
 
     render() {
@@ -53,7 +58,7 @@ class GroupsViewTable extends Component {
                                         {/*<Button to={'/GroupsView/' + person.id}>Delete</Button>*/}
                                         <Button
                                             onClick={() => {
-                                                this.handleRemoveTaskClick(person.id)
+                                                this.handleRemoveTaskClick(data)
                                             }}
                                         >
                                             delete
