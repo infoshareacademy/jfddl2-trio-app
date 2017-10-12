@@ -7,8 +7,8 @@ import {
     Grid
 } from 'react-bootstrap'
 
-import Person from './Person'
-import PersonDetails from "./Person/PersonDetails";
+import Person from './PersonDetails'
+import PersonDetails from "./PersonDetails";
 
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
     return (
         <Router>
             <Grid>
-                <Person/>
+                <Route path="/PersonDetails/:id" component={PersonDetails}/>
             </Grid>
         </Router>
     );
