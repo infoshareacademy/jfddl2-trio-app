@@ -7,7 +7,6 @@ import {
     Grid
 } from 'react-bootstrap'
 
-import Person from './PersonDetails'
 import PersonDetails from "./PersonDetails";
 
 
