@@ -3,6 +3,7 @@ import PeopleViewsTable from "./PeopleViewsTable";
 import DataFetcher from "../DataFetcher/DataFetcher";
 import './PeopleView.css'
 import PeopleSearchForm from './PeopleSearchForm'
+import ShareButton from "../ShareButton/ShareButton";
 
 class PeopleViews extends React.Component {
 
@@ -22,6 +23,7 @@ class PeopleViews extends React.Component {
         return (
             <div>
                 <h1>People</h1>
+                    <ShareButton/>
 
                 <DataFetcher collections={{
                     people: {

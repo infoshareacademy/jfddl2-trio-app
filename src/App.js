@@ -9,6 +9,7 @@ import {
     Grid
 } from 'react-bootstrap'
 import PersonDetails from "./PersonDetails";
+import ShareButton from "./ShareButton"
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
 
               <Route exact path="/" component={PeopleView}/>
               <Route path="/PersonDetails/:personId" component={PersonDetails}/>
+              <Route path ="/ShareButton" component ={ShareButton}/>
           </Grid>
       </Router>
     );
