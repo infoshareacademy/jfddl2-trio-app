@@ -20,7 +20,7 @@ class App extends Component {
 
               <Route exact path="/" component={PeopleView}/>
               <Route path="/PersonDetails/:personId" component={PersonDetails}/>
-              <Route path ="/ShareButton" component ={ShareButton}/>
+              <Route exact path ="/ShareButton" component ={ShareButton}/>
           </Grid>
       </Router>
     );
