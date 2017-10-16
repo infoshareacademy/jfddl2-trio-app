@@ -14,14 +14,14 @@ class GroupsViewTable extends Component {
         })
     }
 
-    handleRemoveTaskClick = (id) => {
-        console.log('handleRemoveTaskClick', id);
-        //
-        // console.log( this.state.collections);
-        // delete this.state.collections[id];
-        // console.log( this.state.collections[id]);
-        this.setState({collections: this.state.collections})
-    }
+    // handleRemoveTaskClick = (id) => {
+    //     console.log('handleRemoveTaskClick', id);
+    //     //
+    //     // console.log( this.state.collections);
+    //     // delete this.state.collections[id];
+    //     // console.log( this.state.collections[id]);
+    //     this.setState({collections: this.state.collections})
+    // }
 
     render() {
         const data = this.state.collections
@@ -54,16 +54,16 @@ class GroupsViewTable extends Component {
                                     <td>
                                         {person.city}
                                     </td>
-                                    <td>
-                                        {/*<Button to={'/GroupsView/' + person.id}>Delete</Button>*/}
-                                        <Button
-                                            onClick={() => {
-                                                this.handleRemoveTaskClick(data)
-                                            }}
-                                        >
-                                            delete
-                                        </Button>
-                                    </td>
+                                    {/*<td>*/}
+                                        {/*/!*<Button to={'/GroupsView/' + person.id}>Delete</Button>*!/*/}
+                                        {/*<Button*/}
+                                            {/*onClick={() => {*/}
+                                                {/*this.handleRemoveTaskClick(data)*/}
+                                            {/*}}*/}
+                                        {/*>*/}
+                                            {/*delete*/}
+                                        {/*</Button>*/}
+                                    {/*</td>*/}
                                 </tr>
                         )
                     }
