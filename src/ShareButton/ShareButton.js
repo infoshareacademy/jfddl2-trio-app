@@ -23,7 +23,7 @@ const TwitterIcon = generateShareIcon('twitter');
 class ShareButton extends Component {
     render() {
         const shareUrl = 'http://app.trio.jfddl2.is-academy.pl';
-        const title = 'InstantMail App';
+        const title = 'Planyo App';
 
         return (
             <div className="Demo__container">
