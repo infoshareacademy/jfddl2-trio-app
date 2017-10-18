@@ -16,6 +16,7 @@ import {
 import GroupsView from './GroupsView'
 import MainMenu from './MainMenu'
 import Form from './Form'
+import Favorites from './Favorites'
 
 class App extends Component {
     render() {
@@ -28,6 +29,7 @@ class App extends Component {
                     <Route exact path="/ShareButton" component={ShareButton}/>
                     <Route exact path='/GroupsView' component={GroupsView}/>
                     <Route exact path="/Form" component={Form}/>
+                    <Route exact path="/FavoritesTable" component={Favorites}/>
                 </Grid>
             </Router>
         );

@@ -14,16 +14,16 @@ const MainMenu = () => (
     <Navbar>
         <Nav>
             <LinkContainer to="/">
-                <NavItem>People</NavItem>
+                <NavItem>Użytkownicy</NavItem>
             </LinkContainer>
             <LinkContainer to="/GroupsView">
-                <NavItem>Groups</NavItem>
+                <NavItem>Grupy</NavItem>
             </LinkContainer>
             <LinkContainer to="/Form">
-                <NavItem>Add</NavItem>
+                <NavItem>Dodaj użytkownika</NavItem>
             </LinkContainer>
             <LinkContainer to="/FavoritesTable">
-                <NavItem>Favorites</NavItem>
+                <NavItem>Ulubione</NavItem>
             </LinkContainer>
         </Nav>
     </Navbar>

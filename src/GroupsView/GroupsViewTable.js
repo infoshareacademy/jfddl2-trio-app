@@ -10,7 +10,8 @@ class GroupsViewTable extends Component {
             collections: JSON.parse(localStorage.getItem('userId')) || [
                 {"id":18,"first_name":"Vina","last_name":"Greer","email":"vgreerh@google.com.hk","phone":"2261756642","proffesion":"Programmer Analyst III","age":32,"city":"Wrocław","adress":"6 Dovetail Center"},
                 {"id":19,"first_name":"Johna","last_name":"Nettles","email":"jnettlesi@cyberchimps.com","phone":"2345663175","proffesion":"Recruiting Manager","age":74,"city":"Lublin","adress":"5 Sugar Crossing"},
-            ]
+            ],
+            personGroup: JSON.parse(localStorage.getItem('personGroup')) || [],
         })
     }
 
@@ -30,15 +31,15 @@ class GroupsViewTable extends Component {
                 <Table striped bordered condensed hover style={{marginTop: 20}}>
                     <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Proffesion</th>
-                        <th>City</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Profesja</th>
+                        <th>Miasto</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        data.map(
+                        this.state.personGroup.map(
                             person =>
 
                                 <tr key={person.id}>
@@ -61,7 +62,7 @@ class GroupsViewTable extends Component {
                                                 this.handleRemoveTaskClick(data)
                                             }}
                                         >
-                                            delete
+                                            Usuń
                                         </Button>
                                     </td>
                                 </tr>

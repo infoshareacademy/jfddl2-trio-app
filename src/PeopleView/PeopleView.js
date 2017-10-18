@@ -22,7 +22,7 @@ class PeopleViews extends React.Component {
 
         return (
             <div>
-                <h1>People</h1>
+                <h1>Użytkownicy</h1>
                     <ShareButton/>
 
                 <DataFetcher collections={{

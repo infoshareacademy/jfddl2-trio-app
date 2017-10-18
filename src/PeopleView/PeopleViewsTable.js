@@ -15,10 +15,10 @@ class PeopleViewsTable extends React.Component {
                 }}>
                     <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Proffesion</th>
-                        <th>City</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Profesja</th>
+                        <th>Miasto</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,7 +56,7 @@ class PeopleViewsTable extends React.Component {
                                         {people.city}
                                     </td>
                                     <td>
-                                        <Link to={'/PersonDetails/' + people.id}>open</Link>
+                                        <Link to={'/PersonDetails/' + people.id}>Pokaż Szczegóły</Link>
                                     </td>
                                 </tr>
                         )

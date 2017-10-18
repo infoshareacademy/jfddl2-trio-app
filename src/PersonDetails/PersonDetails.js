@@ -1,12 +1,12 @@
 import React from 'react'
-import {Table, ButtonToolbar, ButtonGroup, Button, Image} from 'react-bootstrap'
+import {Table, Image} from 'react-bootstrap'
 class PersonDetails extends React.Component {
     state = {
         persons: [],
         savePersons: JSON.parse(localStorage.getItem('addedPersons')) || [],
         finalPerson: null,
         personGroup: JSON.parse(localStorage.getItem('personGroup')) || [],
-        favourites: JSON.parse(localStorage.getItem('favourites')) || []
+        favorites: JSON.parse(localStorage.getItem('favorites')) || []
     }
     componentDidMount() {
         fetch
@@ -37,9 +37,9 @@ class PersonDetails extends React.Component {
         event.preventDefault()
         console.log("ulubione")
         this.setState({
-            favourites: this.state.favourites.concat(this.state.finalPerson)
+            favorites: this.state.favorites.concat(this.state.finalPerson)
         }, () => {
-            localStorage.setItem('favourites', JSON.stringify(this.state.favourites));
+            localStorage.setItem('favorites', JSON.stringify(this.state.favorites));
         });
     }
     render() {
@@ -74,7 +74,7 @@ class PersonDetails extends React.Component {
                             </tr>
                             </tbody>
                         </Table>
-                        <button onClick={this.buttonAddToGroup}>Dodaj</button>
+                        <button onClick={this.buttonAddToGroup}>Dodaj do grupy</button>
                         <button style ={{background: 'yellow'}} onClick={this.buttonAddToFavourites}>Dodaj do ulubionych</button>
                     </div>
                     : 'Ładowanie..'}
