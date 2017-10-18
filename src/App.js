@@ -1,6 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import './App.css';
+import PeopleView from "./PeopleView";
+
+import PersonDetails from "./PersonDetails";
+import ShareButton from "./ShareButton"
+
 import {
-    BrowserRouter as Router,
+    BrowserRouter as Router, Route
 
 } from 'react-router-dom'
 import {
@@ -8,18 +14,26 @@ import {
 } from 'react-bootstrap'
 
 import GroupsView from './GroupsView'
+import MainMenu from './MainMenu'
+import Form from './Form'
+import Favorites from './Favorites'
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-          <Grid>
-              App
-              <GroupsView/>
-          </Grid>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <Grid>
+                    <MainMenu/>
+                    <Route exact path="/" component={PeopleView}/>
+                    <Route path="/PersonDetails/:id" component={PersonDetails}/>
+                    <Route exact path="/ShareButton" component={ShareButton}/>
+                    <Route exact path='/GroupsView' component={GroupsView}/>
+                    <Route exact path="/Form" component={Form}/>
+                    <Route exact path="/FavoritesTable" component={Favorites}/>
+                </Grid>
+            </Router>
+        );
+    }
 }
 
 export default App;
