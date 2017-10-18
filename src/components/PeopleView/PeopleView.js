@@ -1,11 +1,10 @@
 import React from 'react'
 import PeopleViewsTable from "./PeopleViewsTable";
-import DataFetcher from "../DataFetcher/DataFetcher";
 import './PeopleView.css'
 import PeopleSearchForm from './PeopleSearchForm'
 import ShareButton from "../ShareButton/ShareButton";
 
-class PeopleViews extends React.Component {
+class PeopleView extends React.Component {
 
     state = {
         activeFilterNames: [],
@@ -25,12 +24,6 @@ class PeopleViews extends React.Component {
                 <h1>Użytkownicy</h1>
                     <ShareButton/>
 
-                <DataFetcher collections={{
-                    people: {
-                        url: `${process.env.PUBLIC_URL}/data/MOCK_DATA.json`,
-                        label: 'People'
-                    }
-                }}>
                     <PeopleSearchForm
                         handleChange={this.handleSearchPhraseChange}
                         currentSearchPhrase={this.state.currentSearchPhrase}
@@ -39,10 +32,10 @@ class PeopleViews extends React.Component {
                     <PeopleViewsTable
                         currentSearchPhrase={this.state.currentSearchPhrase}
                     />
-                </DataFetcher>
+
             </div>
         );
     }
 }
 
-export default PeopleViews;
+export default PeopleView;

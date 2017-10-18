@@ -1,16 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {
     Navbar,
     Nav,
-    NavItem,
+    NavItem
 } from 'react-bootstrap'
-
 import {
     LinkContainer
 } from 'react-router-bootstrap'
 
+import { signOut } from '../../state/auth'
 
-const MainMenu = () => (
+
+const MainMenu = props => (
     <Navbar>
         <Nav>
             <LinkContainer to="/">
@@ -25,8 +27,18 @@ const MainMenu = () => (
             <LinkContainer to="/FavoritesTable">
                 <NavItem>Ulubione</NavItem>
             </LinkContainer>
+
+            <NavItem onClick={props.signOutHelper}>Sign out</NavItem>
+
         </Nav>
     </Navbar>
 )
 
-export default MainMenu
+const mapDispatchToProps = dispatch => ({
+    signOutHelper: () => dispatch(signOut())
+})
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(MainMenu)

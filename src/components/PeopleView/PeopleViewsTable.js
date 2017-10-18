@@ -2,12 +2,14 @@ import React from 'react'
 import {Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
+import {connect} from 'react-redux'
+
 
 class PeopleViewsTable extends React.Component {
 
     render() {
         const search = this.props.currentSearchPhrase || ''
-        const data = this.props.collections.people.data || [];
+        const data = this.props.data || [];
         return (
             <div>
                 <Table striped bordered condensed hover style={{
@@ -70,4 +72,10 @@ class PeopleViewsTable extends React.Component {
     }
 }
 
-export default PeopleViewsTable
+const mapStateToProps = state => ({
+    data: state.people.data
+})
+
+export default connect(
+    mapStateToProps
+)(PeopleViewsTable)
