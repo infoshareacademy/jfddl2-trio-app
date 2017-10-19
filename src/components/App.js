@@ -15,7 +15,7 @@ import {
 
 import GroupsView from './GroupsView/index'
 import MainMenu from './MainMenu/index'
-import Form from './Form/index'
+import Form from './addPeopleForm/index'
 import Favorites from './Favorites/index'
 
 class App extends Component {
