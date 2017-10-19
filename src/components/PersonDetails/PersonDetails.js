@@ -17,7 +17,7 @@ class PersonDetails extends React.Component {
                 console.log(persons, this.props.match.params.id);
                 persons = persons.concat(this.state.savePersons);
                 persons = persons.filter((person) => {
-                    return person.id === parseInt(this.props.match.params.id)
+                    return person.id === parseInt(this.props.match.params.id, 10)
                 });
                 this.setState({persons: persons, finalPerson: persons[0]})
             }
