@@ -9,8 +9,7 @@ class PersonDetails extends React.Component {
         favorites: JSON.parse(localStorage.getItem('favorites')) || []
     }
     componentDidMount() {
-        fetch
-        (`${process.env.PUBLIC_URL}/data/MOCK_DATA.json`)
+        fetch(`${process.env.PUBLIC_URL}/data/MOCK_DATA.json`)
             .then(
                 response => response.json()
             ).then(

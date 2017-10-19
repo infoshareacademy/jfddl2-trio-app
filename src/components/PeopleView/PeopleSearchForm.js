@@ -13,7 +13,7 @@ class PeopleSearchForm extends React.Component {
         <InputGroup>
           <FormControl
             onChange={this.props.handleChange}
-            value={this.props.searchPhrase}
+            value={this.props.currentSearchPhrase}
             type="text"
           />
         </InputGroup>

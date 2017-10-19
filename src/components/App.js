@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import PeopleView from "./PeopleView";
 
-import PersonDetails from "./PersonDetails";
-import ShareButton from "./ShareButton"
+import PersonDetails from "./PersonDetails/index";
+import ShareButton from "./ShareButton/index"
 
 import {
     BrowserRouter as Router, Route
@@ -13,10 +13,10 @@ import {
     Grid
 } from 'react-bootstrap'
 
-import GroupsView from './GroupsView'
-import MainMenu from './MainMenu'
-import Form from './Form'
-import Favorites from './Favorites'
+import GroupsView from './GroupsView/index'
+import MainMenu from './MainMenu/index'
+import Form from './addPeopleForm/index'
+import Favorites from './Favorites/index'
 
 class App extends Component {
     render() {
