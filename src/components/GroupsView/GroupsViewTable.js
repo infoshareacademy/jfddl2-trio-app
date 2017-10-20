@@ -7,10 +7,6 @@ class GroupsViewTable extends Component {
 
     componentWillMount() {
         this.setState({
-            collections: JSON.parse(localStorage.getItem('userId')) || [
-                {"id":18,"first_name":"Vina","last_name":"Greer","email":"vgreerh@google.com.hk","phone":"2261756642","proffesion":"Programmer Analyst III","age":32,"city":"Wrocław","adress":"6 Dovetail Center"},
-                {"id":19,"first_name":"Johna","last_name":"Nettles","email":"jnettlesi@cyberchimps.com","phone":"2345663175","proffesion":"Recruiting Manager","age":74,"city":"Lublin","adress":"5 Sugar Crossing"},
-            ],
             personGroup: JSON.parse(localStorage.getItem('personGroup')) || [],
         })
     }
