@@ -1,23 +1,21 @@
 import { database } from '../firebase'
 
-const SET_PEOPLE = 'people/SET_PEOPLE'
+const SET_GROUPS = 'people/SET_GROUPS'
 
-const setPeople = people => ({
-    type: SET_PEOPLE,
+const setGroups = people => ({
+    type: SET_GROUPS,
     data: people
 })
 
 export const init = () => dispatch => {
-    database().ref('/people').on(
+    database().ref('/groups').on(
         'value',
         snapshot => {
-            dispatch(setPeople(snapshot.val()))
+            dispatch(setGroups(snapshot.val()))
         }
     )
 }
-export const addPeopleTask = (content) => dispatch => {
-    database().ref('/people').push(content)
-}
+
 
 export const addGroupTask = (content) => () => {
     database().ref('/groups').push(content)
@@ -29,10 +27,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case SET_PEOPLE:
+        case SET_GROUPS:
             return {
                 ...state,
-                data: Object.values(action.data)
+                data: Object.entries(action.data).map(([key, val]) => ({ key, ...val}))
             }
         default:
             return state

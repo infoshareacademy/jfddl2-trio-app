@@ -6,6 +6,9 @@ import {
     NavItem
 } from 'react-bootstrap'
 import {
+    withRouter
+} from 'react-router-dom'
+import {
     LinkContainer
 } from 'react-router-bootstrap'
 
@@ -15,7 +18,7 @@ import { signOut } from '../../state/auth'
 const MainMenu = props => (
     <Navbar>
         <Nav>
-            <LinkContainer to="/">
+            <LinkContainer exact to="/">
                 <NavItem>Użytkownicy</NavItem>
             </LinkContainer>
             <LinkContainer to="/GroupsView">
@@ -38,7 +41,7 @@ const mapDispatchToProps = dispatch => ({
     signOutHelper: () => dispatch(signOut())
 })
 
-export default connect(
+export default withRouter(connect(
     null,
     mapDispatchToProps
-)(MainMenu)
+)(MainMenu))
