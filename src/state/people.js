@@ -19,10 +19,6 @@ export const addPeopleTask = (content) => dispatch => {
     database().ref('/people').push(content)
 }
 
-export const addGroupTask = (content) => () => {
-    database().ref('/groups').push(content)
-}
-
 const initialState = {
     data: null
 }
@@ -32,7 +28,12 @@ export default (state = initialState, action) => {
         case SET_PEOPLE:
             return {
                 ...state,
-                data: Object.values(action.data)
+                data: Object.entries(action.data).map(
+                    ([key, val]) => ({
+                        id: key,
+                        ...val
+                    })
+                )
             }
         default:
             return state

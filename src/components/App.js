@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import PeopleView from "./PeopleView";
 
-import PersonDetails from "./PersonDetails/index";
+import Person from "./PersonDetails/Person";
 import ShareButton from "./ShareButton/index"
 
 import {
@@ -25,7 +25,7 @@ class App extends Component {
                 <Grid>
                     <MainMenu/>
                     <Route exact path="/" component={PeopleView}/>
-                    <Route path="/PersonDetails/:id" component={PersonDetails}/>
+                    <Route path="/PersonDetails/:personId" component={Person}/>
                     <Route exact path="/ShareButton" component={ShareButton}/>
                     <Route exact path='/GroupsView' component={GroupsView}/>
                     <Route exact path="/AddPeopleForm" component={AddPeopleForm}/>

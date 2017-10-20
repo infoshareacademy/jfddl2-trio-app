@@ -9,12 +9,14 @@ import thunk from 'redux-thunk'
 import auth, {init as initAuth} from './state/auth'
 import people, {init as initPeopleSync} from './state/people'
 import groups, {init as initGroupsSync} from './state/groups'
+import person from './state/person'
 
 
 const reducer = combineReducers({
     auth,
     people,
-    groups
+    groups,
+    person
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
