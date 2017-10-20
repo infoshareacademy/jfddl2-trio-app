@@ -10,6 +10,7 @@ class PeopleViewsTable extends React.Component {
     render() {
         const search = this.props.currentSearchPhrase || ''
         const data = this.props.data || [];
+
         return (
             <div>
                 <Table striped bordered condensed hover style={{

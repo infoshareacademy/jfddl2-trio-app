@@ -24,7 +24,6 @@ class FavoritesTable extends React.Component  {
     }
 
     render() {
-        const data = this.state.collections
         return (
             <div>
                 <Table striped bordered condensed hover style={{marginTop: 20}}>

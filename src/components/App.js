@@ -15,7 +15,7 @@ import {
 
 import GroupsView from './GroupsView/index'
 import MainMenu from './MainMenu/index'
-import Form from './addPeopleForm/index'
+import AddPeopleForm from './AddPeopleForm'
 import Favorites from './Favorites/index'
 
 class App extends Component {
@@ -28,7 +28,7 @@ class App extends Component {
                     <Route path="/PersonDetails/:id" component={PersonDetails}/>
                     <Route exact path="/ShareButton" component={ShareButton}/>
                     <Route exact path='/GroupsView' component={GroupsView}/>
-                    <Route exact path="/Form" component={Form}/>
+                    <Route exact path="/AddPeopleForm" component={AddPeopleForm}/>
                     <Route exact path="/FavoritesTable" component={Favorites}/>
                 </Grid>
             </Router>

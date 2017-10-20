@@ -21,7 +21,7 @@ const MainMenu = props => (
             <LinkContainer to="/GroupsView">
                 <NavItem>Grupy</NavItem>
             </LinkContainer>
-            <LinkContainer to="/addPeopleForm">
+            <LinkContainer to="/AddPeopleForm">
                 <NavItem>Dodaj użytkownika</NavItem>
             </LinkContainer>
             <LinkContainer to="/FavoritesTable">

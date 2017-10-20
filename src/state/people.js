@@ -15,6 +15,9 @@ export const init = () => dispatch => {
         }
     )
 }
+export const addPeopleTask = (content) => dispatch => {
+    database().ref('/people').push(content)
+}
 
 const initialState = {
     data: null
@@ -25,7 +28,7 @@ export default (state = initialState, action) => {
         case SET_PEOPLE:
             return {
                 ...state,
-                data: action.data
+                data: Object.values(action.data)
             }
         default:
             return state
