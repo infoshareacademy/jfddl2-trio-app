@@ -14,14 +14,7 @@ class FavoritesTable extends React.Component  {
         })
     }
 
-    handleRemoveTaskClick = (id) => {
-        console.log('handleRemoveTaskClick', id);
-        //
-        // console.log( this.state.collections);
-        // delete this.state.collections[id];
-        // console.log( this.state.collections[id]);
-        this.setState({collections: this.state.collections})
-    }
+
 
     render() {
         return (
