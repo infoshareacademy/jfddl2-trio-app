@@ -8,7 +8,6 @@ class GroupsView extends React.Component {
     render() {
         return(
             <div>
-                <GroupsViewTable />
                 <AddGroupForm/>
                 <Groups/>
             </div>

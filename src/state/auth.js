@@ -1,4 +1,5 @@
 import { auth } from '../firebase'
+import {init as initGroupsSync} from './groups'
 
 const SET_USER = 'auth/SET_USER'
 
@@ -9,7 +10,11 @@ const setUser = user => ({
 
 export const init = () => dispatch => {
   auth().onAuthStateChanged(
-    user => dispatch(setUser(user))
+    user => {
+        if (user)
+            dispatch(initGroupsSync())
+        dispatch(setUser(user))
+    }
   )
 }
 

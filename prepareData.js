@@ -8,5 +8,7 @@ console.log(JSON.stringify(data.reduce((result, next) => ({...result, [next.id]:
     first_name: next.first_name,
     last_name: next.last_name,
     phone: next.phone,
-    proffesion: next.proffesion
+    proffesion: next.proffesion,
+    photo: 'http://lorempixel.com/400/200/people',
+    isFavorite: false
 } }), {})))
