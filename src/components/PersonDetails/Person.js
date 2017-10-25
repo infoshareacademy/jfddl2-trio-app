@@ -3,7 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { Button } from 'react-bootstrap'
 
-import {toggleFav} from '../../state/person'
+import {toggleFav, toggleGroupInUser} from '../../state/person'
 
 
 class Person extends React.Component {
@@ -21,9 +21,7 @@ class Person extends React.Component {
                 {person.first_name}
                 <img src={person.photo}/>
                 <Button
-                    data-person-id={person.id}
-                    onClick={toggleFav}
-                >
+                    onClick={()=>this.props.toggleFav(person.id)}>
                     {
                         person.isFavorite ?
                             'Usuń z ulubionych' :
@@ -31,22 +29,33 @@ class Person extends React.Component {
                     }
                 </Button>
 
+                <br/>
+                <br/>
+                <br/>
+
+                <ul>
+                    {this.props.groups && this.props.groups.map((group)=>{
+                        return <li onClick={()=>{this.props.toggleGroupInUser(person.id , group.key)}}>
+                            {person.groups && person.groups.includes(group.key) ? 'X ' : ''}
+                            {group.name}
+                            </li>
+                })}
+                </ul>
+
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    data: state.people.data
-})
-const mapDispatchToProps = dispatch => ({
-    toggleFav: event => dispatch(
-        toggleFav(
-            event.target.dataset.personId
-        )
-    )
+    data: state.people.data,
+    groups: state.groups.data
 })
 
+const mapDispatchToProps = dispatch =>({
+    toggleFav: id => dispatch(toggleFav(id)),
+    toggleGroupInUser: (userId, groupId) => dispatch(toggleGroupInUser(userId, groupId))
+})
 
 export default connect(
     mapStateToProps,

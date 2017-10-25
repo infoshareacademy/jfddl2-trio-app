@@ -26,12 +26,6 @@ export const addGroupTask = (content) => () => {
 export const deleteGroup = id => dispatch => {
     const uid = auth().currentUser.uid
     database().ref(`/groups/${uid}/${id}`).set(null)
-        .then(()=>{
-            console.log('deleteGroup OK')
-        })
-        .catch((e)=>{
-            console.log('deleteGroup', e)
-        })
 }
 
 const initialState = {

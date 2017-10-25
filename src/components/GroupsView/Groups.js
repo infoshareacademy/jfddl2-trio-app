@@ -9,9 +9,8 @@ const Groups = (props) => (
             {
                 props.groups && props.groups.map(
                     group => <li key={group.key}>{group.name}<Button
-                        data-group-id={group.key}
                         onClick={()=>props.deleteGroup(group.key)}
-                    >usun</Button></li>
+                    >Usuń grupę</Button></li>
                 )
             }
         </ul>

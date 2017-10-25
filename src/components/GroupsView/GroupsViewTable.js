@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import {Link} from 'react-bootstrap'
 
 class GroupsViewTable extends Component {
     state = {collections: []}
@@ -60,6 +61,8 @@ class GroupsViewTable extends Component {
                                         >
                                             Usuń
                                         </Button>
+                                    </td>
+                                    <td>
                                     </td>
                                 </tr>
                         )
