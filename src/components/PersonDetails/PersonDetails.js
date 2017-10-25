@@ -8,6 +8,7 @@ class PersonDetails extends React.Component {
         personGroup: JSON.parse(localStorage.getItem('personGroup')) || [],
         favorites: JSON.parse(localStorage.getItem('favorites')) || []
     }
+    //kommit
     componentDidMount() {
         fetch(`${process.env.PUBLIC_URL}/data/MOCK_DATA.json`)
             .then(
