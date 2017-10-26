@@ -1,7 +1,7 @@
 import React from 'react'
 import {Table} from 'react-bootstrap'
 import {connect} from 'react-redux'
-
+import { Link } from 'react-router-dom'
 class FavoritesTable extends React.Component {
 
 
@@ -36,6 +36,9 @@ class FavoritesTable extends React.Component {
                                     </td>
                                     <td>
                                         {person.city}
+                                    </td>
+                                    <td>
+                                        <Link to={'/PersonDetails/' + person.id}>Pokaż szczegóły</Link>
                                     </td>
                                 </tr>
                             )
