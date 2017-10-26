@@ -11,13 +11,18 @@ class AddGroupForm extends React.Component {
     }
 
     handleChange = event => this.setState({
-        [event.target.name]: event.target.value
+        name: event.target.value
     })
 
     handleSubmit = event => {
         event.preventDefault()
         this.props.addGroupHelper(this.state)
+        this.setState({
+            name: ''
+        })
     }
+
+
     render() {
         return (
             <form
@@ -26,7 +31,7 @@ class AddGroupForm extends React.Component {
                 <input
                     name="name"
                     type="text"
-                    value={this.state.first_name}
+                    value={this.state.name}
                     onChange={this.handleChange}
                     placeholder="name"
                 />

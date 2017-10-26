@@ -1,4 +1,4 @@
-import { database } from '../firebase'
+import {auth, database } from '../firebase'
 
 const SET_GROUPS = 'people/SET_GROUPS'
 
@@ -8,7 +8,8 @@ const setGroups = people => ({
 })
 
 export const init = () => dispatch => {
-    database().ref('/groups').on(
+    const uid = auth().currentUser.uid
+    database().ref('/groups/' + uid).on(
         'value',
         snapshot => {
             dispatch(setGroups(snapshot.val()))
@@ -18,7 +19,13 @@ export const init = () => dispatch => {
 
 
 export const addGroupTask = (content) => () => {
-    database().ref('/groups').push(content)
+    const uid = auth().currentUser.uid
+    database().ref('/groups/' + uid).push(content)
+}
+
+export const deleteGroup = id => dispatch => {
+    const uid = auth().currentUser.uid
+    database().ref(`/groups/${uid}/${id}`).set(null)
 }
 
 const initialState = {
@@ -28,9 +35,10 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case SET_GROUPS:
+            let data = action.data || {}
             return {
                 ...state,
-                data: Object.entries(action.data).map(([key, val]) => ({ key, ...val}))
+                data: Object.entries(data).map(([key, val]) => ({ key, ...val}))
             }
         default:
             return state

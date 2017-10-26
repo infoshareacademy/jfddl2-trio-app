@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 
 import auth, {init as initAuth} from './state/auth'
 import people, {init as initPeopleSync} from './state/people'
-import groups, {init as initGroupsSync} from './state/groups'
+import groups from './state/groups'
 import person from './state/person'
 
 
@@ -30,6 +30,5 @@ const store = createStore(
 
 store.dispatch(initAuth())
 store.dispatch(initPeopleSync())
-store.dispatch(initGroupsSync())
 
 export default store

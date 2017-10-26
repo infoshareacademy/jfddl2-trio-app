@@ -59,7 +59,7 @@ class PeopleViewsTable extends React.Component {
                                         {people.city}
                                     </td>
                                     <td>
-                                        <Link to={'/PersonDetails/' + people.id}>Pokaż Szczegóły</Link>
+                                        <Link to={'/PersonDetails/' + people.id}>Pokaż szczegóły</Link>
                                     </td>
                                 </tr>
                         )
