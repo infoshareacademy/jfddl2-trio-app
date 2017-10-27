@@ -1,8 +1,9 @@
 import React from 'react'
-import {Table} from 'react-bootstrap'
+import {Table, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 import {connect} from 'react-redux'
+import {deletePeople} from "../../state/people";
 
 
 class PeopleViewsTable extends React.Component {
@@ -61,9 +62,11 @@ class PeopleViewsTable extends React.Component {
                                     <td>
                                         <Link to={'/PersonDetails/' + people.id}>Pokaż szczegóły</Link>
                                     </td>
+                                    <td>
+                                        <Button onClick={()=>{this.props.deletePeople(people.id)}}>Usuń użytkownika</Button>
+                                    </td>
                                 </tr>
                         )
-
 
                     }
                     </tbody>
@@ -73,10 +76,15 @@ class PeopleViewsTable extends React.Component {
     }
 }
 
+const mapDispatchToProps = dispatch =>({
+    deletePeople: id => dispatch(deletePeople(id))
+})
+
 const mapStateToProps = state => ({
     data: state.people.data
 })
 
 export default connect(
-    mapStateToProps
+        mapStateToProps,
+    mapDispatchToProps
 )(PeopleViewsTable)

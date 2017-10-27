@@ -13,7 +13,6 @@ import {
 } from 'react-router-bootstrap'
 
 import { signOut } from '../../state/auth'
-import ShareButton from "../ShareButton/ShareButton";
 
 
 const MainMenu = props => (

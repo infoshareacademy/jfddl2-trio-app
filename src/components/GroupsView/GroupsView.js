@@ -1,5 +1,4 @@
 import React from 'react'
-import GroupsViewTable from "./GroupsViewTable"
 import AddGroupForm from './AddGroupForm'
 import Groups from './Groups'
 

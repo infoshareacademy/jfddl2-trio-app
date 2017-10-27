@@ -19,6 +19,11 @@ export const addPeopleTask = (content) => dispatch => {
     database().ref('/people').push(content)
 }
 
+export const deletePeople = id => dispatch => {
+    // const uid = auth().currentUser.uid
+    database().ref(`/people/${id}`).set(null)
+}
+
 const initialState = {
     data: null
 }
