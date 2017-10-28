@@ -19,8 +19,26 @@ class AddTaskForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addPeopleHelper(this.state)
+        if(this.validate())
+            this.props.addPeopleHelper(this.state)
+        else
+            alert('Podaj poprawne dane!')
     }
+
+    validate = () => {
+        if (
+            this.state.first_name
+            &&
+            this.state.last_name
+            &&
+            this.state.proffesion
+            &&
+            this.state.city
+        )
+            return true
+        return false
+    }
+
     render() {
         return (
             <form

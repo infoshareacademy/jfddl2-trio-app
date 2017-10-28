@@ -29,6 +29,5 @@ const store = createStore(
 )
 
 store.dispatch(initAuth())
-store.dispatch(initPeopleSync())
 
 export default store
