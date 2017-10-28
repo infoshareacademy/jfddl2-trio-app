@@ -9,8 +9,8 @@ class PeopleView extends React.Component {
     state = {
         activeFilterNames: [],
         currentSearchPhrase: '',
-        groupIdFilter: '-KxIdiuE43-WzB-nKEY0'
-        // groupIdFilter: ''
+        // groupIdFilter: '-KxIdiuE43-WzB-nKEY0'
+        groupIdFilter: this.props.match.params.groupId
     }
 
     handleSearchPhraseChange = event => {
