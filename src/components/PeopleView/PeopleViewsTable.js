@@ -10,6 +10,7 @@ class PeopleViewsTable extends React.Component {
 
     render() {
         const search = this.props.currentSearchPhrase || ''
+        const groupIdFilter = this.props.groupIdFilter || null
         const data = this.props.data || [];
 
         return (
@@ -23,6 +24,8 @@ class PeopleViewsTable extends React.Component {
                         <th>Nazwisko</th>
                         <th>Profesja</th>
                         <th>Miasto</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,8 +47,13 @@ class PeopleViewsTable extends React.Component {
 
                                     people.city.toLowerCase().includes(search.toLowerCase())
 
-                                )).map(
-                            people =>
+                                ))
+                            .filter(people => {
+                                if(groupIdFilter === null)
+                                    return true
+                                return people.groups && people.groups.includes(groupIdFilter)
+                            })
+                            .map(people =>
                                 <tr key={people.id}>
                                     <td>
                                         {people.first_name}
@@ -63,10 +71,12 @@ class PeopleViewsTable extends React.Component {
                                         <Link to={'/PersonDetails/' + people.id}>Pokaż szczegóły</Link>
                                     </td>
                                     <td>
-                                        <Button onClick={()=>{this.props.deletePeople(people.id)}}>Usuń użytkownika</Button>
+                                        <Button onClick={() => {
+                                            this.props.deletePeople(people.id)
+                                        }}>Usuń użytkownika</Button>
                                     </td>
                                 </tr>
-                        )
+                            )
 
                     }
                     </tbody>
@@ -76,7 +86,7 @@ class PeopleViewsTable extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch =>({
+const mapDispatchToProps = dispatch => ({
     deletePeople: id => dispatch(deletePeople(id))
 })
 
@@ -85,6 +95,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-        mapStateToProps,
+    mapStateToProps,
     mapDispatchToProps
 )(PeopleViewsTable)

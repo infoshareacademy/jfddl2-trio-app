@@ -8,7 +8,9 @@ class PeopleView extends React.Component {
 
     state = {
         activeFilterNames: [],
-        currentSearchPhrase: ''
+        currentSearchPhrase: '',
+        groupIdFilter: '-KxIdiuE43-WzB-nKEY0'
+        // groupIdFilter: ''
     }
 
     handleSearchPhraseChange = event => {
@@ -31,6 +33,7 @@ class PeopleView extends React.Component {
                     />
                     <PeopleViewsTable
                         currentSearchPhrase={this.state.currentSearchPhrase}
+                        groupIdFilter={this.state.groupIdFilter}
                     />
 
             </div>
