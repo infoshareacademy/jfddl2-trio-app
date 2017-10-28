@@ -19,7 +19,6 @@ class Person extends React.Component {
         return (
             <div>
                 {person.first_name}
-                <img src={person.photo}/>
                 <Button
                     onClick={()=>this.props.toggleFav(person.id)}>
                     {

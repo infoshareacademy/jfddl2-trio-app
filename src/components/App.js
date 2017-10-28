@@ -25,6 +25,7 @@ class App extends Component {
                 <Grid>
                     <MainMenu/>
                     <Route exact path="/" component={PeopleView}/>
+                    <Route path="/people/:groupId" component={PeopleView}/>
                     <Route path="/PersonDetails/:personId" component={Person}/>
                     <Route exact path="/ShareButton" component={ShareButton}/>
                     <Route exact path='/GroupsView' component={GroupsView}/>
