@@ -1,4 +1,4 @@
-import { database } from '../firebase'
+import { auth, database } from '../firebase'
 
 const SET_PEOPLE = 'people/SET_PEOPLE'
 
@@ -8,7 +8,8 @@ const setPeople = people => ({
 })
 
 export const init = () => dispatch => {
-    database().ref('/people').on(
+    const uid = auth().currentUser.uid
+    database().ref(`/people/${uid}`).on(
         'value',
         snapshot => {
             dispatch(setPeople(snapshot.val()))
@@ -16,12 +17,13 @@ export const init = () => dispatch => {
     )
 }
 export const addPeopleTask = (content) => dispatch => {
-    database().ref('/people').push(content)
+    const uid = auth().currentUser.uid
+    database().ref(`/people/${uid}`).push(content)
 }
 
 export const deletePeople = id => dispatch => {
-    // const uid = auth().currentUser.uid
-    database().ref(`/people/${id}`).set(null)
+    const uid = auth().currentUser.uid
+    database().ref(`/people/${uid}/${id}`).set(null)
 }
 
 const initialState = {
