@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { signUp } from '../../state/auth'
+import {FormGroup, FormControl, Button} from 'react-bootstrap'
+import styles from './Start.css'
+
 
 class SignUpForm extends React.Component {
 
@@ -21,24 +24,39 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
+        <div className="box" style={{
+
+            width: '60vw',
+            borderRadius: 2,
+            padding: 15,
+            boxShadow: '0px 0px 10px lightgrey',
+            marginTop: '20px'
+
+        }}>
       <form onSubmit={this.handleSubmit}>
-        <h1>Sign Up</h1>
-        <input
+        <h2>Zarejestruj się</h2>
+        <FormControl
           type="text"
           name="email"
+          placeholder="email"
           onChange={this.handleChange}
           value={this.state.email}
-        />
+        >
+        </FormControl>
+        <br/>
 
-        <input
+          <FormControl
           type="password"
           name="password"
+          placeholder="password"
           onChange={this.handleChange}
           value={this.state.password}
-        />
+        >
+          </FormControl><br/>
 
-        <button>Sign up</button>
+        <Button type={"submit"} bsStyle={"warning"}>Zarejestruj się</Button>
       </form>
+        </div>
     )
   }
 }

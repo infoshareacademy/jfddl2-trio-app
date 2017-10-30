@@ -23,8 +23,10 @@ class PeopleView extends React.Component {
 
         return (
             <div>
-                <h1>Użytkownicy</h1>
-                    <ShareButton/>
+                <h2 style={{
+                    marginTop: 80,
+                    paddingBottom: 40
+                }}>Kandydaci</h2>
 
                     <PeopleSearchForm
                         handleChange={this.handleSearchPhraseChange}

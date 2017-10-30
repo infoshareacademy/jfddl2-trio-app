@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { signIn } from '../../state/auth'
+import {FormGroup, FormControl, Button} from 'react-bootstrap'
 
 class SignInForm extends React.Component {
 
@@ -21,24 +22,41 @@ class SignInForm extends React.Component {
 
   render() {
     return (
+        <div className="box" style={{
+                width: '60vw',
+                borderRadius: 2,
+                padding: 15,
+                boxShadow: '0px 0px 10px lightgrey',
+                margin: '0 auto',
+                marginTop: '5%'
+            }}>
+
       <form onSubmit={this.handleSubmit}>
-        <h1>Sign In</h1>
-        <input
+        <h2>Zaloguj się</h2>
+
+        <FormControl
           type="text"
           name="email"
+          placeholder="email"
           onChange={this.handleChange}
           value={this.state.email}
-        />
+        >
+        </FormControl>
+        <br/>
+          <FormControl
+              type="text"
+              name="password"
+              placeholder="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+          >
+        </FormControl><br/>
 
-        <input
-          type="password"
-          name="password"
-          onChange={this.handleChange}
-          value={this.state.password}
-        />
 
-        <button>Sign in</button>
+
+        <Button type={"submit"} bsStyle={"warning"}>Zaloguj się</Button>
       </form>
+        </div>
     )
   }
 }

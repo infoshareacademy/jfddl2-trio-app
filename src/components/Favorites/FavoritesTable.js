@@ -9,9 +9,16 @@ class FavoritesTable extends React.Component {
         const data = this.props.data || [];
         return (
             <div>
+                    <h2 style={{
+                        marginTop: 80,
+                        paddingBottom: 40
+                    }}>Ulubione</h2>
+
                 <Table striped bordered condensed hover style={{marginTop: 20}}>
                     <thead>
-                    <tr>
+                    <tr  style={{
+                        backgroundColor: '#76acdb'
+                    }}>
                         <th>Imię</th>
                         <th>Nazwisko</th>
                         <th>Profesja</th>
@@ -37,7 +44,9 @@ class FavoritesTable extends React.Component {
                                     <td>
                                         {person.city}
                                     </td>
-                                    <td>
+                                    <td style={{
+                                        width:'15%'
+                                    }}>
                                         <Link to={'/PersonDetails/' + person.id}>Pokaż szczegóły</Link>
                                     </td>
                                 </tr>

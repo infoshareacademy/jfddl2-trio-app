@@ -1,27 +1,43 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Button} from 'react-bootstrap'
+import {Button, Table} from 'react-bootstrap'
 import {deleteGroup} from '../../state/groups'
 import {Link} from 'react-router-dom'
 
 const Groups = (props) => (
     <div>
-        <ul>
+
+        <Table striped bordered condensed hover style={{
+            marginTop: 50
+        }}> <thead>
+        <tr>
             {
+
                 props.groups && props.groups.map(
                     group => (
-                        <li key={group.key}>
+                        <th key={group.key}>
+                            <td>
                             <Link to={`/people/${group.key}`}>
                                 {group.name}
                             </Link>
-                            <Button onClick={() => props.deleteGroup(group.key)}>
+                            </td>
+                            <br/><br/>
+                            <th>
+                            <Button bsStyle="danger" onClick={() => props.deleteGroup(group.key)}>
                                 Usuń grupę
                             </Button>
-                        </li>
+                            </th>
+                        </th>
+
                     )
+
                 )
+
             }
-        </ul>
+        </tr>
+        </thead>
+        </Table>
+
     </div>
 )
 

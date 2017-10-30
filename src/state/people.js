@@ -4,7 +4,7 @@ const SET_PEOPLE = 'people/SET_PEOPLE'
 
 const setPeople = people => ({
     type: SET_PEOPLE,
-    data: people
+    data: people || {}
 })
 
 export const init = () => dispatch => {
@@ -27,7 +27,7 @@ export const deletePeople = id => dispatch => {
 }
 
 const initialState = {
-    data: null
+    data: []
 }
 
 export default (state = initialState, action) => {

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { addGroupTask } from '../../state/groups'
+import {FormControl, Button, InputGroup, Glyphicon, Table} from 'react-bootstrap'
 
 
 class AddGroupForm extends React.Component {
@@ -25,21 +26,43 @@ class AddGroupForm extends React.Component {
 
     render() {
         return (
-            <form
+            <div>
+                <h2 style={{
+                marginTop: 80,
+                paddingBottom: 40
+            }}>Dodaj grupę</h2>
+
+            <form style={{
+                width: '30%',
+                margin: '0 auto'
+            }}
                 onSubmit={this.handleSubmit}
             >
-                <input
+                <InputGroup>
+                <FormControl
                     name="name"
                     type="text"
                     value={this.state.name}
                     onChange={this.handleChange}
                     placeholder="name"
-                />
+                >
+                </FormControl>
+                <br/><br/>
 
-                <button>
-                    Zapisz grupe
-                </button>
+
+                <Button bsStyle="info" onClick={this.handleSubmit}>
+                    <Glyphicon glyph="plus-sign"/> Zapisz grupę
+                </Button>
+                </InputGroup>
             </form>
+
+
+
+
+            </div>
+
+
+
 
         )
     }

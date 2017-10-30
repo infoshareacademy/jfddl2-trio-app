@@ -11,29 +11,53 @@ import {
 import {
     LinkContainer
 } from 'react-router-bootstrap'
+import ShareButton from '../ShareButton'
 
 import { signOut } from '../../state/auth'
+import {logo} from './planyo1.png'
 
 
 const MainMenu = props => (
-    <Navbar>
+    <Navbar style={{BorderRadiusBottom:10,
+        background: 'white',
+        width: '100%'
+    }}>
+        <Navbar.Header>
+
+        </Navbar.Header>
+        <Navbar.Toggle/>
+        <Navbar.Brand>
+            <img src={require('./planyo1.png')} style={{
+                height: 50,
+                width: 80
+            }} />
+
+        </Navbar.Brand>
+        <Navbar.Collapse>
         <Nav>
+
             <LinkContainer exact to="/">
-                <NavItem>Użytkownicy</NavItem>
+                <NavItem>Kandydaci</NavItem>
             </LinkContainer>
             <LinkContainer to="/GroupsView">
                 <NavItem>Grupy</NavItem>
             </LinkContainer>
             <LinkContainer to="/AddPeopleForm">
-                <NavItem>Dodaj użytkownika</NavItem>
+                <NavItem>Dodaj kandydata</NavItem>
             </LinkContainer>
             <LinkContainer to="/FavoritesTable">
                 <NavItem>Ulubione</NavItem>
             </LinkContainer>
 
             <NavItem onClick={props.signOutHelper}>Sign out</NavItem>
+        </Nav>
+            <Nav pullRight>
+                <NavItem>
+                    <ShareButton/>
+                </NavItem>
 
         </Nav>
+        </Navbar.Collapse>
     </Navbar>
 )
 

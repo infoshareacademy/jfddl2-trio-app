@@ -1,7 +1,6 @@
 import React from 'react'
 import AddGroupForm from './AddGroupForm'
 import Groups from './Groups'
-
 class GroupsView extends React.Component {
 
     render() {
