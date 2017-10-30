@@ -44,7 +44,7 @@ class SignInForm extends React.Component {
         </FormControl>
         <br/>
           <FormControl
-              type="text"
+              type="password"
               name="password"
               placeholder="password"
               onChange={this.handleChange}
