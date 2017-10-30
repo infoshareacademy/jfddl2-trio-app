@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { addPeopleTask } from '../../state/people'
+import {FormControl, Button} from 'react-bootstrap'
 
 
 class AddTaskForm extends React.Component {
@@ -10,7 +11,8 @@ class AddTaskForm extends React.Component {
         first_name: '',
         last_name: '',
         proffesion: '',
-        city: ''
+        city: '',
+        isFavorite: false
     }
 
     handleChange = event => this.setState({
@@ -41,44 +43,80 @@ class AddTaskForm extends React.Component {
 
     render() {
         return (
+            <div>
+                <h2 style={{
+                    marginTop: 80,
+                    paddingBottom: 40
+                }}>Dodaj kandydata</h2>
             <form
                 onSubmit={this.handleSubmit}
             >
-                <input
+                <FormControl
                     name="first_name"
                     type="text"
                     value={this.state.first_name}
                     onChange={this.handleChange}
-                    placeholder="First name"
-                />
-                <input
+                    placeholder="Imię"
+                >
+                </FormControl>
+                <FormControl
                     name="last_name"
                     type="text"
                     value={this.state.last_name}
                     onChange={this.handleChange}
-                    placeholder="Last name"
-                />
-                <input
+                    placeholder="Nazwisko"
+                >
+                </FormControl>
+                <FormControl
                     name="proffesion"
                     type="text"
                     value={this.state.proffesion}
                     onChange={this.handleChange}
-                    placeholder="Proffesion"
-                />
-                <input
+                    placeholder="Profesja"
+                >
+                </FormControl>
+                <FormControl
                     name="city"
                     type="text"
                     value={this.state.city}
                     onChange={this.handleChange}
-                    placeholder="City"
-                />
+                    placeholder="Miasto"
+                >
+                </FormControl>
+                <FormControl
+                    name="age"
+                    type="text"
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    placeholder="Wiek"
+                >
+                </FormControl>
+                <FormControl
+                    name="phone"
+                    type="text"
+                    value={this.state.phone}
+                    onChange={this.handleChange}
+                    placeholder="Telefon"
+                >
+                </FormControl>
+                <FormControl
+                    name="email"
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    placeholder="Email"
+                >
+                </FormControl>
+                <br/>
 
-                <button>
-                    Zapisz użytkownika
-                </button>
+                <Button bsStyle="success" onClick={this.handleSubmit}>
+                    Zapisz kandydata
+                </Button>
             </form>
+            </div>
 
         )
+
     }
 }
 

@@ -30,27 +30,27 @@ class ShareButton extends Component {
 
                 {/*<Grid>*/}
                 <Row>
-                    <Col xs={1} xsOffset={5}>
+                    <Col xs={4}>
                         <div className="Demo__some-network">
                             <FacebookShareButton
                                 url={shareUrl}
                                 quote={title}
                                 className="Demo__some-network__share-button">
                                 <FacebookIcon
-                                    size={32}
+                                    size={22}
                                     round/>
                             </FacebookShareButton>
 
                         </div>
                     </Col>
-                    <Col xs={1}>
+                    <Col xs={4}>
                         <div className="Demo__some-network">
                             <TwitterShareButton
                                 url={shareUrl}
                                 title={title}
                                 className="Demo__some-network__share-button">
                                 <TwitterIcon
-                                    size={32}
+                                    size={22}
                                     round/>
                             </TwitterShareButton>
                         </div>

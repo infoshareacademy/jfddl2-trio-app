@@ -15,17 +15,18 @@ class PeopleViewsTable extends React.Component {
 
         return (
             <div>
-                <Table striped bordered condensed hover style={{
-                    marginTop: 20
+
+                <Table striped bordered condensed hover highlight style={{
+                    marginTop: 40
                 }}>
                     <thead>
-                    <tr>
+                    <tr style={{
+                        backgroundColor: '#76acdb'
+                    }}>
                         <th>Imię</th>
                         <th>Nazwisko</th>
                         <th>Profesja</th>
                         <th>Miasto</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,7 +72,7 @@ class PeopleViewsTable extends React.Component {
                                         <Link to={'/PersonDetails/' + people.id}>Pokaż szczegóły</Link>
                                     </td>
                                     <td>
-                                        <Button onClick={() => {
+                                        <Button bsStyle="danger" onClick={() => {
                                             this.props.deletePeople(people.id)
                                         }}>Usuń użytkownika</Button>
                                     </td>

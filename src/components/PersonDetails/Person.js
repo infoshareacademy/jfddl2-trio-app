@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {connect} from 'react-redux'
-import { Button } from 'react-bootstrap'
+import { Button, Table, ListGroup, ListGroupItem } from 'react-bootstrap'
 
 import {toggleFav, toggleGroupInUser} from '../../state/person'
 
@@ -10,7 +10,7 @@ class Person extends React.Component {
 
     render() {
         const personId = this.props.match.params.personId
-        const person = (this.props.data || []).find(person => person.id === personId);
+        const person = this.props.data.find(person => person.id === personId);
 
         if (person === undefined) {
             return null
@@ -18,8 +18,55 @@ class Person extends React.Component {
 
         return (
             <div>
-                {person.first_name}
-                <Button
+                <h2 style={{
+                    marginTop: 80,
+                    paddingBottom: 40
+                }}>Informacje szczegółowe</h2>
+
+                <Table striped bordered condensed hover highlight style={{
+                    marginTop: 40
+                }}>
+                    <thead>
+                    <tr style={{
+                        backgroundColor: '#76acdb'
+                    }}>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Profesja</th>
+                        <th>Miasto</th>
+                        <th>Wiek</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr key={person.id}>
+                        <td>
+                            {person.first_name}
+                        </td>
+                        <td>
+                            {person.last_name}
+                        </td>
+                        <td>
+                            {person.proffesion}
+                        </td>
+                        <td>
+                            {person.city}
+                        </td>
+                        <td>
+                            {person.age}
+                        </td>
+                        <td>
+                            {person.phone}
+                        </td>
+                        <td>
+                            {person.email}
+                        </td>
+                    </tr>
+                    </tbody>
+                </Table>
+
+                <Button bsStyle="warning"
                     onClick={()=>this.props.toggleFav(person.id)}>
                     {
                         person.isFavorite ?
@@ -31,16 +78,17 @@ class Person extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-
-                <ul>
+                <h2 style={{
+                    marginTop: 40,
+                    paddingBottom: 40}}> Grupy kandydata</h2>
+                    <ListGroup>
                     {this.props.groups && this.props.groups.map((group)=>{
-                        return <li onClick={()=>{this.props.toggleGroupInUser(person.id , group.key)}}>
+                        return <ListGroupItem bsStyle="info" onClick={()=>{this.props.toggleGroupInUser(person.id , group.key)}}>
                             {person.groups && person.groups.includes(group.key) ? 'X ' : ''}
                             {group.name}
-                            </li>
+                            </ListGroupItem>
                 })}
-                </ul>
-
+                    </ListGroup>
             </div>
         )
     }

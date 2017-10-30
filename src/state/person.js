@@ -1,4 +1,4 @@
-import {database} from '../firebase'
+import {database, auth} from '../firebase'
 
 // action type
 
@@ -6,20 +6,21 @@ import {database} from '../firebase'
 // action creator
 
 export const toggleGroupInUser = (userId, groupId) => (dispatch, getState) => {
-    console.log('toggleGroupInUser', userId, groupId)
-    const person = getState().people.data.find(person => parseInt(person.id, 10) === parseInt(userId, 10))
+    const peopleData = getState().people.data
+    const person = peopleData.find(person => person.id === userId)
+    const authUid = auth().currentUser.uid
     if (person.groups && person.groups.includes(groupId))
-        database().ref(`/people/${userId}/groups/${person.groups.indexOf(groupId)}`).set(null)
+        database().ref(`/people/${authUid}/${userId}/groups/${person.groups.indexOf(groupId)}`).set(null)
     else
-        database().ref(`/people/${userId}/groups/${person.groups ? person.groups.length : 0}`).set(groupId)
+        database().ref(`/people/${authUid}/${userId}/groups/${person.groups ? person.groups.length : 0}`).set(groupId)
 
 }
 
 
 export const toggleFav = id => (dispatch, getState) => {
-    console.log('toggleFav', id)
-    const person = getState().people.data.find(person => parseInt(person.id, 10) === parseInt(id, 10))
-    database().ref('/people/' + id + '/isFavorite').set(!person.isFavorite)
+    const authUid = auth().currentUser.uid
+    const person = getState().people.data.find(person => person.id === id)
+    database().ref('/people/' + authUid + '/' + id + '/isFavorite').set(!person.isFavorite)
 }
 
 
