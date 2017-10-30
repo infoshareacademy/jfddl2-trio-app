@@ -25,6 +25,7 @@ class AddTaskForm extends React.Component {
             this.props.addPeopleHelper(this.state)
         else
             alert('Podaj poprawne dane!')
+        alert("Dodałeś kandydata do bazy")
     }
 
     validate = () => {
@@ -109,16 +110,20 @@ class AddTaskForm extends React.Component {
                 </FormControl>
                 <br/>
 
-                <Button bsStyle="success" onClick={this.handleSubmit}>
+                <Button bsStyle="success" onClick={this.handleSubmit} >
                     Zapisz kandydata
                 </Button>
+
             </form>
             </div>
 
         )
 
     }
+
 }
+
+
 
 
 
